@@ -1,0 +1,69 @@
+body {
+  margin: 0px;
+  background: url('/pokemon-bg.png') center/cover no-repeat;
+}
+
+#game_grid {
+  border: 2px #ff6347 solid; 
+  /* width: 600px;
+  height: 400px; */
+  margin: auto;
+  display: flex; /* display in a row */
+  flex-wrap: wrap; /* wrap excess in next row */
+}
+
+#game_grid.easy {
+  width: 600px;   /* 3 × 200px */
+  height: 400px;  /* 2 rows × 200px */
+}
+#game_grid.normal {
+  width: 800px;   /* 4 × 200px */
+  height: 600px;  /* 3 rows × 200px */
+}
+#game_grid.hard {
+  width:1200px;   /* 6 × 200px */
+  height: 800px;  /* 4 rows × 200px */
+}
+
+#game_grid.easy   .card { width: 33.33%; }  /* 200px/600px */
+#game_grid.normal .card { width: 25%;    }  /* 200px/800px */
+#game_grid.hard   .card { width: 16.66%; }  /* 200px/1200px */
+
+
+.card {
+  /* width: 33.3%; */
+  position: relative; /* normal flow, parent reference point*/
+  transition: transform 1s; /* animation time of 1s if any transform applied */
+  perspective: 1000px; /* set up perspective of 3D-space */
+  transform-style: preserve-3d; /* gives children 3D-space */
+}
+
+
+img {
+  width: 100%
+}
+
+.front_face,
+.back_face {
+  position: absolute; /* remove from flow, place child at parent reference point */
+  backface-visibility: hidden; /* if face flipped, hide it */
+}
+/* default show back, hide front. after flip, hide back, show front */
+
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+
+.front_face {
+  transform: rotateY(180deg);
+}
+
+#status-header, #controls, #modes {
+  text-align: center;
+}
+
+/* .selected {
+  color: #ff6347;
+} */
