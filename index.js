@@ -97,6 +97,8 @@ async function setup(mode) {
 
   if (timer !== null) clearInterval(timer);
 
+  lockBoard = false;
+
   const cards = configuration[mode].cards; 
   const time = configuration[mode].time;
   const totalPairs = cards / 2;
